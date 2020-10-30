@@ -12,3 +12,5 @@ What you'll need to do in order to get the bot running is
  5. Run the **start.bat** file
 
 There might be errors but I'm too lazy to fix them.
+
+**This is important though** there are many commands that are set to be dev only, these commands are used by checking the ID of the person sending it, so there's a new variable on the top of **index.js** that is called **Owner ID**, and in here you will want to paste your User ID, which you can get by enabling Developer mode in Discord's settings, and right clicking your name in a message and hitting "Copy ID"
