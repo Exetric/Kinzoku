@@ -1,4 +1,5 @@
 const version = "0.3.0";
+const devId = "PASTE YOUR USER ID HERE"
 
 console.log("> Starting index.js");
 console.log("> Loading Repos\n==============================");
@@ -377,7 +378,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
 
 // EMBED COMMAND
   if(command === "embed") {
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       if(!args[0]) {
         return message.channel.send(`\`\`\`/embed <sendto: preview/userid> <color: default/null/hex> <thumbnail: default/null/url> <image: null/url> <title: separate with - > <description: spaces can be used>\`\`\``)
       }
@@ -437,7 +438,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // SET LEVEL COMMAND
   if(command === 'setlevel') {
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       var amount = args[1]
       var user = message.mentions.users.first() || message.author
 
@@ -449,7 +450,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // SET XP COMMAND
   if(command === "addxp") {
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       var user = message.mentions.users.first() || message.author
       var profile = await eco.FetchBalance(user.id)
       var amount = args[1]
@@ -461,7 +462,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // STATUS COMMAND
   if(command === 'status') {
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       if(!args.join(' ')) {
         message.channel.send("\`/status <message> <*=online, ~=Idle, ^=DND, >=Streaming>\`")
         return;
@@ -502,7 +503,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   if(command === "invite") {
     message.reply("join it pls https://discord.gg/r6xXWpK");
   }
-// HI COMMAND (Thanks Blaid/AppleArcade)
+// HI COMMAND
   if(command === "hi") {
     var odds = Math.floor((Math.random() * 10) + 1);
     if(odds == "1") {
@@ -512,7 +513,6 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
     if(odds == "2") {
       if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
         odds = odds + 1
-        console.log("bruv it was 2 at first")
       } else {
         message.channel.send("H-H-Hey what's up, how you doin, you lookin fine, holy shit you grew")
       }
@@ -584,198 +584,6 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
     setTimeout(() => {
       talkedRecently.delete(message.author.id);
     }, 60000);
-  }
-// CONSOLE LOG COMMAND
-  if(command === "console") {
-    console.log(args.splice(` `))
-  }
-// MOST LIKELY TO
-  if(command === "mlt") {
-    if(fs.existsSync(`./operations/mlt.ver`)) {
-      return console.log("Someone tried to do the mlt command");
-    } else {
-      fs.writeFile(`./operations/mlt.ver`, ` `, noop)
-      var startEmbed = new Discord.RichEmbed()
-        .setColor("7FE830")
-        .setTitle("Welcome to the Most Likely To Event!")
-        .setDescription("The Most Likely To event is an event where theres a series of questions such as `Who's most likely to become famous?`, and you vote for the person that you think fits the description the best.")
-        .addField("How to I vote for someone?", "To vote for someone, just react to the question with the emote that is related to that person")
-        .addField("Example", "if **Kinzoku =** <:default:613566063824732189>, then to vote for kinzoku, just react with the <:default:613566063824732189> on that message")
-        .setThumbnail("https://i.imgur.com/zaJ4m9R.png");
-      var personEmbed = new Discord.RichEmbed()
-        .setColor("7FE830")
-        .setTitle("The Emojis!")
-        .setDescription(":rainbow_flag: - brody\n<:whyd:718541093851103383> - Exetric\n<:blurryeyes:718541218979643426> - lando\n:hear_no_evil: - Redkwan\n<:memecube:718541670848790538> - Memecube\n<a:dreamcast:718541684580810823> - Dreamcast64\n:auto_rickshaw: - SupremeBubbo\n:hot_face: - Slash\n:cloud_lightning: - Luxen\n:manual_wheelchair: - Solaris\n:snake: - Hayk\n:squid: - SquiVolt\n<:how:718541722170425431> - Weeb\n<:doubt1:718541761223458886> - BlueSomething\n:truck: - DaHero\n:flag_sa: - Larc\n:flag_ao: - MKGP\n:pregnant_woman: - BobbyFrothy\n:fox: - Blaid")
-      var question1 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to become an anime girl")
-      var question2 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to smoke weed")
-      var question3 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to get banned soon")
-      var question4 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to be a billionaire")
-      var question5 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to have their server overtake link lounge")
-      var question6 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to become a famous Youtuber")
-      var question7 = new Discord.RichEmbed()
-        .setColor("000000")
-        .setTitle("Most likely to become the next server owner of Link Lounge")
-      message.channel.send("@everyone", startEmbed);
-      message.channel.send(personEmbed);
-      const questionReact1 = await message.channel.send(question1)
-      const questionReact2 = await message.channel.send(question2)
-      const questionReact3 = await message.channel.send(question3)
-      const questionReact4 = await message.channel.send(question4)
-      const questionReact5 = await message.channel.send(question5)
-      const questionReact6 = await message.channel.send(question6)
-      const questionReact7 = await message.channel.send(question7)
-      questionReact1.react("🏳️‍🌈")
-      questionReact1.react("718541093851103383")
-      questionReact1.react("718541218979643426")
-      questionReact1.react("🙉")
-      questionReact1.react("718541670848790538")
-      questionReact1.react("718541684580810823")
-      questionReact1.react("🛺")
-      questionReact1.react("🥵")
-      questionReact1.react("🌩️")
-      questionReact1.react("🦽")
-      questionReact1.react("🐍")
-      questionReact1.react("🦑")
-      questionReact1.react("718541722170425431")
-      questionReact1.react("🚚")
-      questionReact1.react("🇸🇦")
-      questionReact1.react("🇦🇴")
-      questionReact1.react("🤰")
-      questionReact1.react("🦊")
-      questionReact1.react("718541761223458886")
-
-      questionReact2.react("🏳️‍🌈")
-      questionReact2.react("718541093851103383")
-      questionReact2.react("718541218979643426")
-      questionReact2.react("🙉")
-      questionReact2.react("718541670848790538")
-      questionReact2.react("718541684580810823")
-      questionReact2.react("🛺")
-      questionReact2.react("🥵")
-      questionReact2.react("🌩️")
-      questionReact2.react("🦽")
-      questionReact2.react("🐍")
-      questionReact2.react("🦑")
-      questionReact2.react("718541722170425431")
-      questionReact2.react("🚚")
-      questionReact2.react("🇸🇦")
-      questionReact2.react("🇦🇴")
-      questionReact2.react("🤰")
-      questionReact2.react("🦊")
-      questionReact2.react("718541761223458886")
-
-      questionReact3.react("🏳️‍🌈")
-      questionReact3.react("718541093851103383")
-      questionReact3.react("718541218979643426")
-      questionReact3.react("🙉")
-      questionReact3.react("718541670848790538")
-      questionReact3.react("718541684580810823")
-      questionReact3.react("🛺")
-      questionReact3.react("🥵")
-      questionReact3.react("🌩️")
-      questionReact3.react("🦽")
-      questionReact3.react("🐍")
-      questionReact3.react("🦑")
-      questionReact3.react("718541722170425431")
-      questionReact3.react("🚚")
-      questionReact3.react("🇸🇦")
-      questionReact3.react("🇦🇴")
-      questionReact3.react("🤰")
-      questionReact3.react("🦊")
-      questionReact3.react("718541761223458886")
-
-      questionReact4.react("🏳️‍🌈")
-      questionReact4.react("718541093851103383")
-      questionReact4.react("718541218979643426")
-      questionReact4.react("🙉")
-      questionReact4.react("718541670848790538")
-      questionReact4.react("718541684580810823")
-      questionReact4.react("🛺")
-      questionReact4.react("🥵")
-      questionReact4.react("🌩️")
-      questionReact4.react("🦽")
-      questionReact4.react("🐍")
-      questionReact4.react("🦑")
-      questionReact4.react("718541722170425431")
-      questionReact4.react("🚚")
-      questionReact4.react("🇸🇦")
-      questionReact4.react("🇦🇴")
-      questionReact4.react("🤰")
-      questionReact4.react("🦊")
-      questionReact4.react("718541761223458886")
-
-      questionReact5.react("🏳️‍🌈")
-      questionReact5.react("718541093851103383")
-      questionReact5.react("718541218979643426")
-      questionReact5.react("🙉")
-      questionReact5.react("718541670848790538")
-      questionReact5.react("718541684580810823")
-      questionReact5.react("🛺")
-      questionReact5.react("🥵")
-      questionReact5.react("🌩️")
-      questionReact5.react("🦽")
-      questionReact5.react("🐍")
-      questionReact5.react("🦑")
-      questionReact5.react("718541722170425431")
-      questionReact5.react("🚚")
-      questionReact5.react("🇸🇦")
-      questionReact5.react("🇦🇴")
-      questionReact5.react("🤰")
-      questionReact5.react("🦊")
-      questionReact5.react("718541761223458886")
-
-      questionReact6.react("🏳️‍🌈")
-      questionReact6.react("718541093851103383")
-      questionReact6.react("718541218979643426")
-      questionReact6.react("🙉")
-      questionReact6.react("718541670848790538")
-      questionReact6.react("718541684580810823")
-      questionReact6.react("🛺")
-      questionReact6.react("🥵")
-      questionReact6.react("🌩️")
-      questionReact6.react("🦽")
-      questionReact6.react("🐍")
-      questionReact6.react("🦑")
-      questionReact6.react("718541722170425431")
-      questionReact6.react("🚚")
-      questionReact6.react("🇸🇦")
-      questionReact6.react("🇦🇴")
-      questionReact6.react("🤰")
-      questionReact6.react("🦊")
-      questionReact6.react("718541761223458886")
-
-      questionReact7.react("🏳️‍🌈")
-      questionReact7.react("718541093851103383")
-      questionReact7.react("718541218979643426")
-      questionReact7.react("🙉")
-      questionReact7.react("718541670848790538")
-      questionReact7.react("718541684580810823")
-      questionReact7.react("🛺")
-      questionReact7.react("🥵")
-      questionReact7.react("🌩️")
-      questionReact7.react("🦽")
-      questionReact7.react("🐍")
-      questionReact7.react("🦑")
-      questionReact7.react("718541722170425431")
-      questionReact7.react("🚚")
-      questionReact7.react("🇸🇦")
-      questionReact7.react("🇦🇴")
-      questionReact7.react("🤰")
-      questionReact7.react("🦊")
-      questionReact7.react("718541761223458886")
-    }
   }
 // WHO DID THIS COMMAND
   if(command === "wdt") {
@@ -1337,7 +1145,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
       var black = await Canvas.loadImage(`./images/profile/barbg.png`)
       ctx.drawImage(black, 13, 183, 214, 20)
 
-      if(user.id == "340225283560833026") {
+      if(user.id == devId) {
         var card = await Canvas.loadImage('./images/profile/coolbar.png')
       } else {
         var card = await Canvas.loadImage('./images/profile/profilebar.png')
@@ -1362,7 +1170,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
       }
       ctx.drawImage(avatar, 228, 72, 109, 109);
 
-      if(user.id == "340225283560833026") {
+      if(user.id == devId) {
         verified = await Canvas.loadImage('./images/profile/cooldude.png');
         ctx.drawImage(verified, 0, 0, 360, 270);
       } else {
@@ -1811,7 +1619,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
 // VERIFY COMMAND
   if(command === "verify") {
     var user = message.mentions.users.first() || message.author
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       if (fs.existsSync(`./operations/verify/${user.id}.ver`)) {return message.reply(`${user.username} is already verified`)}
         message.channel.startTyping();
         message.channel.send("Processing...")
@@ -2298,7 +2106,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // INFO COMMAND
   if(command === "info") {
-    var user = client.fetchUser("340225283560833026")
+    var user = client.fetchUser(devId)
     var infoembed = new Discord.RichEmbed()
       .setColor(`E62E38`)
       .addField(`Code Used`, `JavaScript along with Discord.js`)
@@ -2419,7 +2227,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
 // REPORT BUG COMMAND
   if(command === "reportbug") {
     let bug = args.join(" ");
-    client.users.get(`340225283560833026`).send(`Bug report: **${bug}**\nSent by ${message.author}`);
+    client.users.get(devId).send(`Bug report: **${bug}**\nSent by ${message.author}`);
     await message.reply(`Report sent!`)
   }
 // KICK COMMAND
@@ -2769,14 +2577,6 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // CHINCHILLA COMMAND
   if(command === "chinchilla") {
-    var odds = Math.floor((Math.random() * 1000) + 1);
-    if(odds == "50") {
-      var embed = new Discord.RichEmbed()
-        .setTitle("Huh, it seams you have triggered a command with the 1/999 chance of seeing a photo of the bot creators chinchilla, so say hello to Francis")
-        .setImage("https://i.imgur.com/v0qnOIv.png")
-        .setColor("RANDOM")
-      return message.channel.send(embed)
-    }
     var sub = "chinchilla"
     randomPuppy(sub)
     .then(url => {
@@ -2836,7 +2636,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // RESET DAILY COMMAND
   if (command === 'resetdaily') {
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       var user = message.mentions.users.first() || message.author
       var output = await eco.ResetDaily(user.id)
       message.channel.send(`\`${user.username}\'s daily has been reset\``)
@@ -2846,7 +2646,7 @@ if(fs.existsSync(`./operations/purify/${message.guild.id}.ver`)) {
   }
 // GIVE KREDITS COMMAND
   if (command === 'givekredits') {
-    if(message.author.id == "340225283560833026") {
+    if(message.author.id == devId) {
       var request = args[1]
       if(isNaN(request)) {return message.channel.send("`Please request a number`")}
       var user = message.mentions.users.first() || message.author
