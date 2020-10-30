@@ -1,0 +1,39 @@
+{
+  "name": "Kinzoku",
+  "version": "0.3.0",
+  "description": "a general use Discord Bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Exetric#7625",
+  "license": "ISC",
+  "dependencies": {
+    "big-text.js-patched": "^1.0.1",
+    "blob": "0.0.5",
+    "canvas": "^2.5.0",
+    "discord-economy": "^1.1.6",
+    "discord-leveling": "^1.0.3",
+    "discord.js": "^11.5.1",
+    "discord.js-commando": "^0.10.0",
+    "ffmpeg": "0.0.4",
+    "file-saver": "^2.0.2",
+    "fs": "0.0.1-security",
+    "get-meme-urls": "^1.0.1",
+    "http": "0.0.0",
+    "jimp": "^0.6.4",
+    "mongoclient": "^1.0.3",
+    "node-blob": "0.0.2",
+    "node-fetch": "^2.6.0",
+    "opusscript": "0.0.6",
+    "prism-media": "^1.0.2",
+    "querystring": "^0.2.0",
+    "random-puppy": "^1.1.0",
+    "self-reload-json": "^0.4.0",
+    "snekfetch": "^4.0.4",
+    "superagent": "^5.1.0",
+    "urban.js": "^2.4.3",
+    "ytdl-core": "^0.29.2"
+  }
+}
